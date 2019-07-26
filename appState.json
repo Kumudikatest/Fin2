@@ -8,24 +8,23 @@
         "type": "DIRECTORY",
         "isDirectory": true,
         "children": [
-          "96465c07-8986-4373-9441-5bff420cea77",
-          "443ce478-0f3a-4989-a4ad-937a9ab8eced"
+          "0163635e-b6f5-488c-9009-5437d8f8a846"
         ],
         "isRemovable": false,
         "filePath": "Fin1"
       },
-      "96465c07-8986-4373-9441-5bff420cea77": {
-        "id": "96465c07-8986-4373-9441-5bff420cea77",
+      "0163635e-b6f5-488c-9009-5437d8f8a846": {
+        "id": "0163635e-b6f5-488c-9009-5437d8f8a846",
         "parent": "58e5a36d-bfa6-4cfe-86ea-fab33c6c148c",
-        "name": "lambda.js",
+        "name": "new.js",
         "type": "JS_LAMBDA",
         "isDirectory": false,
         "children": [],
         "isRemovable": true,
-        "filePath": "Fin1/lambda.js",
-        "code": "let Swagger = require('swagger-client');\n\nexports.handler = function (event, context, callback) {\n\n}",
+        "filePath": "Fin1/new.js",
+        "code": "let Swagger = require('swagger-client');\n\nvar login_id = 1\nvar api_key = \"key\"\n\nexports.handler = function (event, context, callback) {\n    Swagger.http({\n        url: `https://devapi.currencycloud.com/v2/authenticate/api`,\n        method: 'post',\n        query: {},\n        headers: { \"Accept\": \"application/json\", \"Content-Type\": \"application/x-www-form-urlencoded\" },\n        body: `login_id=${login_id}&api_key=${api_key}`\n    }).then((response) => {\n        callback(null, { \"message\": response});\n        // your code goes here\n    }).catch((err) => {\n        // error handling goes here\n    });\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
         "config": {
-          "runtime": "nodejs8.10",
+          "runtime": "nodejs10.x",
           "handler": "handler",
           "timeout": 60,
           "memory": 128,
@@ -36,34 +35,18 @@
             "resourceName": "apigusEast1reondreondget",
             "config": {}
           }
-        ],
-        "testCases": {
-          "43e852a1-12fc-4998-a974-793eeb6f5cde": {
-            "id": "43e852a1-12fc-4998-a974-793eeb6f5cde",
-            "name": "Unnamed event",
-            "functionId": "96465c07-8986-4373-9441-5bff420cea77",
-            "event": "{\n    \"key1\": \"value1\",\n    \"key2\": \"value2\",\n    \"key3\": \"value3\"\n}"
-          }
-        }
-      },
-      "443ce478-0f3a-4989-a4ad-937a9ab8eced": {
-        "id": "443ce478-0f3a-4989-a4ad-937a9ab8eced",
-        "parent": "58e5a36d-bfa6-4cfe-86ea-fab33c6c148c",
-        "name": "__init__.py",
-        "type": "PYTHON_FILE",
-        "isDirectory": false,
-        "children": [],
-        "isRemovable": true,
-        "filePath": "Fin1/__init__.py",
-        "code": ""
+        ]
       }
     },
-    "deletedFiles": [],
+    "deletedFiles": [
+      "Fin1/lambda.js",
+      "Fin1/__init__.py"
+    ],
     "rootNode": "58e5a36d-bfa6-4cfe-86ea-fab33c6c148c",
     "openFiles": [
-      "96465c07-8986-4373-9441-5bff420cea77"
+      "0163635e-b6f5-488c-9009-5437d8f8a846"
     ],
-    "currentFileId": "96465c07-8986-4373-9441-5bff420cea77",
+    "currentFileId": "0163635e-b6f5-488c-9009-5437d8f8a846",
     "resources": {
       "apigusEast1reondreondget": {
         "name": "apigusEast1reondreondget",
@@ -88,7 +71,7 @@
           "enableCORS": false,
           "stageMode": 1,
           "stageName": "reond",
-          "stageDeploymentId": "k5v7eh",
+          "stageDeploymentId": "40mrqj",
           "mode": 1
         }
       }
@@ -131,7 +114,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1564128126648
+    "lastSave": 1564131936723
   },
   "VCS_STATE": {
     "provider": "GitHub",
