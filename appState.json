@@ -8,7 +8,18 @@
         "type": "DIRECTORY",
         "isDirectory": true,
         "children": [
-          "0163635e-b6f5-488c-9009-5437d8f8a846"
+          "0163635e-b6f5-488c-9009-5437d8f8a846",
+          "7c0c4a82-6ce3-4469-aabf-da84aced7aa2",
+          "091e7f76-85cf-42ae-98da-94828a54221f",
+          "acc00405-5c2a-46b0-bebe-d5faaf8a8daa",
+          "7dcb14b0-3e03-4859-9ce5-84c4d819a912",
+          "d5100d7a-e577-4b8e-af3f-fbec03f38dfc",
+          "8cfa5ee6-afd0-4d06-8152-ea219acd0bd9",
+          "7be26134-939a-46d2-a884-c8df70c87cfb",
+          "7c458a81-96d1-4e93-823b-2031086d0024",
+          "738ad168-1457-4d8b-9eb0-e68a01c9153c",
+          "f02458c2-c062-40e9-8d5d-7eec63052775",
+          "f1f59db0-3fcf-4be8-beb5-f25ac790900b"
         ],
         "isRemovable": false,
         "filePath": "Fin1"
@@ -22,7 +33,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "Fin1/new.js",
-        "code": "let Swagger = require('swagger-client');\n\nvar login_id = 1\nvar api_key = \"key\"\n\nexports.handler = function (event, context, callback) {\n    Swagger.http({\n        url: `https://devapi.currencycloud.com/v2/authenticate/api`,\n        method: 'post',\n        query: {},\n        headers: { \"Accept\": \"application/json\", \"Content-Type\": \"application/x-www-form-urlencoded\" },\n        body: `login_id=${login_id}&api_key=${api_key}`\n    }).then((response) => {\n        callback(null, { \"message\": response});\n        // your code goes here\n    }).catch((err) => {\n        // error handling goes here\n    });\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
+        "code": "let Swagger = require('swagger-client');\n\nexports.handler = function (event, context, callback) {\n    var login_id = 1\n    var api_key = \"key\"\n\n    Swagger.http({\n        url: `https://devapi.currencycloud.com/v2/authenticate/api`,\n        method: 'post',\n        query: {},\n        headers: { \"Accept\": \"application/json\", \"Content-Type\": \"application/x-www-form-urlencoded\" },\n        body: `login_id=${login_id}&api_key=${api_key}`\n    }).then((response) => {\n        \n        //callback(null, { \"message\": response});\n        // your code goes here\n    }).catch((err) => {\n        console.log(login_id);\n        console.log(api_key);\n        // error handling goes here\n        callback(null, {\"err\": err});\n    });\n\n    //callback(null, { \"message\": login_id });\n}",
         "config": {
           "runtime": "nodejs10.x",
           "handler": "handler",
@@ -35,16 +46,329 @@
             "resourceName": "apigusEast1reondreondget",
             "config": {}
           }
-        ]
+        ],
+        "testCases": {
+          "e4eb22cc-3575-4a9a-af88-37733a609044": {
+            "id": "e4eb22cc-3575-4a9a-af88-37733a609044",
+            "name": "Unnamed event",
+            "functionId": "0163635e-b6f5-488c-9009-5437d8f8a846",
+            "event": "{\n    \"key1\": \"value1\",\n    \"key2\": \"value2\",\n    \"key3\": \"value3\"\n}"
+          }
+        }
+      },
+      "7c0c4a82-6ce3-4469-aabf-da84aced7aa2": {
+        "id": "7c0c4a82-6ce3-4469-aabf-da84aced7aa2",
+        "parent": "58e5a36d-bfa6-4cfe-86ea-fab33c6c148c",
+        "name": "new2.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "Fin1/new2.js",
+        "code": "let Swagger = require('swagger-client');\nvar token = 1234; \nexports.handler = function (event, context, callback) {\n    Swagger.http({\n        url: `https://devapi.currencycloud.com/v2/authenticate/close_session`,\n        method: 'post',\n        query: {},\n        headers: { \"X-Auth-Token\": token, \"Accept\": \"application/json\" }\n    }).then((response) => {\n        // your code goes here\n    }).catch((err) => {\n        // error handling goes here\n        console.log(err);\n    });\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
+        "config": {
+          "runtime": "nodejs8.10",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": []
+        },
+        "triggers": [],
+        "testCases": {
+          "36b491f2-dd6b-44da-8804-bbeb898e84c6": {
+            "id": "36b491f2-dd6b-44da-8804-bbeb898e84c6",
+            "name": "Unnamed event",
+            "functionId": "7c0c4a82-6ce3-4469-aabf-da84aced7aa2",
+            "event": "{\n    \"key1\": \"value1\",\n    \"key2\": \"value2\",\n    \"key3\": \"value3\"\n}"
+          }
+        }
+      },
+      "091e7f76-85cf-42ae-98da-94828a54221f": {
+        "id": "091e7f76-85cf-42ae-98da-94828a54221f",
+        "parent": "58e5a36d-bfa6-4cfe-86ea-fab33c6c148c",
+        "name": "new3.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "Fin1/new3.js",
+        "code": "let Swagger = require('swagger-client');\nvar id = 2;\n\nexports.handler = function (event, context, callback) {\n    Swagger.http({\n        url: `http://localhost//tokenise`,\n        method: 'post',\n        query: {},\n        headers: { \"Accept\": \"\", \"Content-Type\": \"applications/json\" },\n        body: id\n    }).then((response) => {\n        // your code goes here\n    }).catch((err) => {\n        // error handling goes here\n        console.log(err);\n    });\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
+        "config": {
+          "runtime": "nodejs8.10",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": []
+        },
+        "triggers": [],
+        "testCases": {
+          "ae4c81e1-8a36-4278-aced-bd8533ecc869": {
+            "id": "ae4c81e1-8a36-4278-aced-bd8533ecc869",
+            "name": "Unnamed event",
+            "functionId": "091e7f76-85cf-42ae-98da-94828a54221f",
+            "event": "{\n    \"key1\": \"value1\",\n    \"key2\": \"value2\",\n    \"key3\": \"value3\"\n}"
+          }
+        }
+      },
+      "acc00405-5c2a-46b0-bebe-d5faaf8a8daa": {
+        "id": "acc00405-5c2a-46b0-bebe-d5faaf8a8daa",
+        "parent": "58e5a36d-bfa6-4cfe-86ea-fab33c6c148c",
+        "name": "new4.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "Fin1/new4.js",
+        "code": "let Swagger = require('swagger-client');\n\nvar con = 12;\nvar id = 1\nvar page = \"page\";\nvar per = \"per\";\nvar order = \"order\";\nvar token = 1234;\n\nexports.handler = function (event, context, callback) {\n    Swagger.http({\n        url: `https://devapi.currencycloud.com/v2/ibans/find`,\n        method: 'get',\n        query: { \"scope\": \"own\", \"currency\": con, \"account_id\": id, \"page\": page, \"per_page\": per, \"order\": order, \"order_asc_desc\": \"asc\" },\n        headers: { \"X-Auth-Token\": token, \"Accept\": \"application/json\" }\n    }).then((response) => {\n        // your code goes here\n    }).catch((err) => {\n        // error handling goes here\n        console.log(err);\n    });\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
+        "config": {
+          "runtime": "nodejs8.10",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": []
+        },
+        "triggers": [],
+        "testCases": {
+          "74e4f249-9816-4a05-86bd-fdd5e38c994c": {
+            "id": "74e4f249-9816-4a05-86bd-fdd5e38c994c",
+            "name": "Unnamed event",
+            "functionId": "acc00405-5c2a-46b0-bebe-d5faaf8a8daa",
+            "event": "{\n    \"key1\": \"value1\",\n    \"key2\": \"value2\",\n    \"key3\": \"value3\"\n}"
+          }
+        }
+      },
+      "7dcb14b0-3e03-4859-9ce5-84c4d819a912": {
+        "id": "7dcb14b0-3e03-4859-9ce5-84c4d819a912",
+        "parent": "58e5a36d-bfa6-4cfe-86ea-fab33c6c148c",
+        "name": "new5.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "Fin1/new5.js",
+        "code": "let Swagger = require('swagger-client');\n\nexports.handler = function (event, context, callback) {\n    Swagger.http({\n        url: `https://api.sandbox.transferwise.tech/quotes`,\n        method: 'post',\n        query: {},\n        headers: { \"Accept\": \"application/xml\", \"Content-Type\": \"application/json\" },\n        body: JSON.stringify({ \"test\": \"123\" })\n    }).then((response) => {\n        // your code goes here\n    }).catch((err) => {\n        // error handling goes here\n        console.log(err);\n    });\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
+        "config": {
+          "runtime": "nodejs8.10",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": []
+        },
+        "triggers": [],
+        "testCases": {
+          "66d3186d-3283-4a37-b101-2ec97e70668e": {
+            "id": "66d3186d-3283-4a37-b101-2ec97e70668e",
+            "name": "Unnamed event",
+            "functionId": "7dcb14b0-3e03-4859-9ce5-84c4d819a912",
+            "event": "{\n    \"key1\": \"value1\",\n    \"key2\": \"value2\",\n    \"key3\": \"value3\"\n}"
+          }
+        }
+      },
+      "d5100d7a-e577-4b8e-af3f-fbec03f38dfc": {
+        "id": "d5100d7a-e577-4b8e-af3f-fbec03f38dfc",
+        "parent": "58e5a36d-bfa6-4cfe-86ea-fab33c6c148c",
+        "name": "New6.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "Fin1/New6.js",
+        "code": "let Swagger = require('swagger-client');\n\nexports.handler = function (event, context, callback) {\n    Swagger.http({\n        url: `https://api.sandbox.transferwise.tech/personal`,\n        method: 'get',\n        query: {},\n        headers: { \"Accept\": \"application/json\" }\n    }).then((response) => {\n        // your code goes here\n    }).catch((err) => {\n        // error handling goes here\n        console.log(err);\n    });\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
+        "config": {
+          "runtime": "nodejs8.10",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": []
+        },
+        "triggers": [],
+        "testCases": {
+          "7c623bb8-375a-4200-8682-7dbdc0415378": {
+            "id": "7c623bb8-375a-4200-8682-7dbdc0415378",
+            "name": "Unnamed event",
+            "functionId": "d5100d7a-e577-4b8e-af3f-fbec03f38dfc",
+            "event": "{\n    \"key1\": \"value1\",\n    \"key2\": \"value2\",\n    \"key3\": \"value3\"\n}"
+          }
+        }
+      },
+      "8cfa5ee6-afd0-4d06-8152-ea219acd0bd9": {
+        "id": "8cfa5ee6-afd0-4d06-8152-ea219acd0bd9",
+        "parent": "58e5a36d-bfa6-4cfe-86ea-fab33c6c148c",
+        "name": "new7.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "Fin1/new7.js",
+        "code": "let Swagger = require('swagger-client');\n\nexports.handler = function (event, context, callback) {\n    Swagger.http({\n        url: `https://api.sandbox.transferwise.tech/business`,\n        method: 'get',\n        query: {},\n        headers: { \"Accept\": \"application/json\" }\n    }).then((response) => {\n        // your code goes here\n    }).catch((err) => {\n        // error handling goes here\n        console.log(err);\n    });\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
+        "config": {
+          "runtime": "nodejs8.10",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": []
+        },
+        "triggers": [],
+        "testCases": {
+          "1a75c1f6-a786-49cd-857a-d29e5313288b": {
+            "id": "1a75c1f6-a786-49cd-857a-d29e5313288b",
+            "name": "Unnamed event",
+            "functionId": "8cfa5ee6-afd0-4d06-8152-ea219acd0bd9",
+            "event": "{\n    \"key1\": \"value1\",\n    \"key2\": \"value2\",\n    \"key3\": \"value3\"\n}"
+          }
+        }
+      },
+      "7be26134-939a-46d2-a884-c8df70c87cfb": {
+        "id": "7be26134-939a-46d2-a884-c8df70c87cfb",
+        "parent": "58e5a36d-bfa6-4cfe-86ea-fab33c6c148c",
+        "name": "new8.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "Fin1/new8.js",
+        "code": "let Swagger = require('swagger-client');\nvar b = \"test\";\nexports.handler = function (event, context, callback) {\n    Swagger.http({\n        url: `https://api.sandbox.transferwise.tech/quotes`,\n        method: 'post',\n        query: {},\n        headers: { \"Accept\": \"application/json\", \"Content-Type\": \"application/json\" },\n        body: JSON.stringify(b)\n    }).then((response) => {\n        // your code goes here\n    }).catch((err) => {\n        // error handling goes here\n        console.log(err);\n    });\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
+        "config": {
+          "runtime": "nodejs8.10",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": []
+        },
+        "triggers": [],
+        "testCases": {
+          "9010ecd5-080d-4b7f-92f8-6fc8312ddcda": {
+            "id": "9010ecd5-080d-4b7f-92f8-6fc8312ddcda",
+            "name": "Unnamed event",
+            "functionId": "7be26134-939a-46d2-a884-c8df70c87cfb",
+            "event": "{\n    \"key1\": \"value1\",\n    \"key2\": \"value2\",\n    \"key3\": \"value3\"\n}"
+          }
+        }
+      },
+      "7c458a81-96d1-4e93-823b-2031086d0024": {
+        "id": "7c458a81-96d1-4e93-823b-2031086d0024",
+        "parent": "58e5a36d-bfa6-4cfe-86ea-fab33c6c148c",
+        "name": "new9.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "Fin1/new9.js",
+        "code": "let Swagger = require('swagger-client');\nvar id = 1;\nexports.handler = function (event, context, callback) {\n    Swagger.http({\n        url: `https://api.sandbox.transferwise.tech/transfers/${id}/payments`,\n        method: 'post',\n        query: {},\n        headers: { \"Accept\": \"application/json\", \"Content-Type\": \"application/json\" },\n        body: JSON.stringify({ \"Test\": \"test\" })\n    }).then((response) => {\n        // your code goes here\n    }).catch((err) => {\n        console.log(err);\n        // error handling goes here\n    });\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
+        "config": {
+          "runtime": "nodejs8.10",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": []
+        },
+        "triggers": [],
+        "testCases": {
+          "7b00c2b4-688b-45bd-b3b5-df01fff907e1": {
+            "id": "7b00c2b4-688b-45bd-b3b5-df01fff907e1",
+            "name": "Unnamed event",
+            "functionId": "7c458a81-96d1-4e93-823b-2031086d0024",
+            "event": "{\n    \"key1\": \"value1\",\n    \"key2\": \"value2\",\n    \"key3\": \"value3\"\n}"
+          }
+        }
+      },
+      "738ad168-1457-4d8b-9eb0-e68a01c9153c": {
+        "id": "738ad168-1457-4d8b-9eb0-e68a01c9153c",
+        "parent": "58e5a36d-bfa6-4cfe-86ea-fab33c6c148c",
+        "name": "1.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "Fin1/1.js",
+        "code": "let Swagger = require('swagger-client');\n\nexports.handler = function (event, context, callback) {\n    Swagger.http({\n        url: `https://api.sandbox.transferwise.tech/accounts`,\n        method: 'post',\n        query: {},\n        headers: { \"Accept\": \"application/json\", \"Content-Type\": \"application/json\" },\n        body: JSON.stringify(1234)\n    }).then((response) => {\n        // your code goes here\n    }).catch((err) => {\n        // error handling goes here\n        console.log(err);\n    });\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
+        "config": {
+          "runtime": "nodejs8.10",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": []
+        },
+        "triggers": [],
+        "testCases": {
+          "d09e7d8f-2f15-4298-80d7-278dc9873a01": {
+            "id": "d09e7d8f-2f15-4298-80d7-278dc9873a01",
+            "name": "Unnamed event",
+            "functionId": "738ad168-1457-4d8b-9eb0-e68a01c9153c",
+            "event": "{\n    \"key1\": \"value1\",\n    \"key2\": \"value2\",\n    \"key3\": \"value3\"\n}"
+          }
+        }
+      },
+      "f02458c2-c062-40e9-8d5d-7eec63052775": {
+        "id": "f02458c2-c062-40e9-8d5d-7eec63052775",
+        "parent": "58e5a36d-bfa6-4cfe-86ea-fab33c6c148c",
+        "name": "2.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "Fin1/2.js",
+        "code": "let Swagger = require('swagger-client');\n\nexports.handler = function (event, context, callback) {\n    Swagger.http({\n        url: `http://bx8ocdir2g.execute-api.eu-west-1.amazonaws.com/prod/fyn`,\n        method: 'post',\n        query: {},\n        headers: { \"Accept\": \"\", \"Content-Type\": \"applications/json\" },\n        body: '1234'\n    }).then((response) => {\n        // your code goes here\n    }).catch((err) => {\n        // error handling goes here\n        console.log(err);\n    });\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
+        "config": {
+          "runtime": "nodejs8.10",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": []
+        },
+        "triggers": [],
+        "testCases": {
+          "b22ac3a4-0e06-426a-a8d5-671bb28ac801": {
+            "id": "b22ac3a4-0e06-426a-a8d5-671bb28ac801",
+            "name": "Unnamed event",
+            "functionId": "f02458c2-c062-40e9-8d5d-7eec63052775",
+            "event": "{\n    \"key1\": \"value1\",\n    \"key2\": \"value2\",\n    \"key3\": \"value3\"\n}"
+          }
+        }
+      },
+      "f1f59db0-3fcf-4be8-beb5-f25ac790900b": {
+        "id": "f1f59db0-3fcf-4be8-beb5-f25ac790900b",
+        "parent": "58e5a36d-bfa6-4cfe-86ea-fab33c6c148c",
+        "name": "3.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "Fin1/3.js",
+        "code": "let Swagger = require('swagger-client');\n\nexports.handler = function (event, context, callback) {\n    Swagger.http({\n        url: `https://api.sandbox.transferwise.tech/transfers`,\n        method: 'post',\n        query: {},\n        headers: { \"Accept\": \"application/json\", \"Content-Type\": \"application/json\" },\n        body: JSON.stringify({ \"Test\": \"Test\" })\n    }).then((response) => {\n        // your code goes here\n    }).catch((err) => {\n        // error handling goes here\n        console.log(err);\n    });\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
+        "config": {
+          "runtime": "nodejs8.10",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": []
+        },
+        "triggers": [],
+        "testCases": {
+          "01ecb0a1-ceb2-418e-baf0-46319a97d21f": {
+            "id": "01ecb0a1-ceb2-418e-baf0-46319a97d21f",
+            "name": "Unnamed event",
+            "functionId": "f1f59db0-3fcf-4be8-beb5-f25ac790900b",
+            "event": "{\n    \"key1\": \"value1\",\n    \"key2\": \"value2\",\n    \"key3\": \"value3\"\n}"
+          }
+        }
       }
     },
-    "deletedFiles": [
-      "Fin1/lambda.js",
-      "Fin1/__init__.py"
-    ],
+    "deletedFiles": [],
     "rootNode": "58e5a36d-bfa6-4cfe-86ea-fab33c6c148c",
     "openFiles": [
-      "0163635e-b6f5-488c-9009-5437d8f8a846"
+      "0163635e-b6f5-488c-9009-5437d8f8a846",
+      "7c0c4a82-6ce3-4469-aabf-da84aced7aa2",
+      "091e7f76-85cf-42ae-98da-94828a54221f",
+      "acc00405-5c2a-46b0-bebe-d5faaf8a8daa",
+      "7dcb14b0-3e03-4859-9ce5-84c4d819a912",
+      "d5100d7a-e577-4b8e-af3f-fbec03f38dfc",
+      "8cfa5ee6-afd0-4d06-8152-ea219acd0bd9",
+      "7be26134-939a-46d2-a884-c8df70c87cfb",
+      "7c458a81-96d1-4e93-823b-2031086d0024",
+      "738ad168-1457-4d8b-9eb0-e68a01c9153c",
+      "f02458c2-c062-40e9-8d5d-7eec63052775",
+      "f1f59db0-3fcf-4be8-beb5-f25ac790900b"
     ],
     "currentFileId": "0163635e-b6f5-488c-9009-5437d8f8a846",
     "resources": {
@@ -114,7 +438,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1564131936723
+    "lastSave": 1564138006796
   },
   "VCS_STATE": {
     "provider": "GitHub",
