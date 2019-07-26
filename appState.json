@@ -1,0 +1,177 @@
+{
+  "EDITOR_STATE": {
+    "allProjectFiles": {
+      "58e5a36d-bfa6-4cfe-86ea-fab33c6c148c": {
+        "id": "58e5a36d-bfa6-4cfe-86ea-fab33c6c148c",
+        "parent": null,
+        "name": "Fin1",
+        "type": "DIRECTORY",
+        "isDirectory": true,
+        "children": [
+          "96465c07-8986-4373-9441-5bff420cea77",
+          "8809008e-caf6-47a7-9bf7-e6ea065fc1de",
+          "c5f7159c-0eba-48b1-bdfc-42bec4b7f0e4",
+          "443ce478-0f3a-4989-a4ad-937a9ab8eced"
+        ],
+        "isRemovable": false,
+        "filePath": "Fin1"
+      },
+      "96465c07-8986-4373-9441-5bff420cea77": {
+        "id": "96465c07-8986-4373-9441-5bff420cea77",
+        "parent": "58e5a36d-bfa6-4cfe-86ea-fab33c6c148c",
+        "name": "lambda.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "Fin1/lambda.js",
+        "code": "let Swagger = require('swagger-client');\n\nexports.handler = function (event, context, callback) {\n\n    Swagger.http({\n        url: `http://bx8ocdir2g.execute-api.eu-west-1.amazonaws.com/prod/fyn`,\n        method: 'get',\n        query: {},\n        headers: { \"Accept\": \"\" }\n    }).then((response) => {\n        // your code goes here\n        console.log(response);\n    }).catch((err) => {\n        // error handling goes here\n    });\n\n    Swagger.http({\n        url: `http://bx8ocdir2g.execute-api.eu-west-1.amazonaws.com/prod/fyn`,\n        method: 'post',\n        query: {},\n        headers: { \"Accept\": \"\", \"Content-Type\": \"applications/json\" },\n        body: { \"Test\": \"Value\" }\n    }).then((response) => {\n        console.log(response);\n        // your code goes here\n    }).catch((err) => {\n        // error handling goes here\n    });\n    Swagger.http({\n        url: `http://bx8ocdir2g.execute-api.eu-west-1.amazonaws.com/prod/fyn`,\n        method: 'post',\n        query: {},\n        headers: { \"Accept\": \"\", \"Content-Type\": \"applications/json\" },\n        body: b\n    }).then((response) => {\n        // your code goes here\n    }).catch((err) => {\n        // error handling goes here\n    });\n\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
+        "config": {
+          "runtime": "nodejs8.10",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": []
+        },
+        "triggers": [
+          {
+            "resourceName": "apigusEast1reondreondget",
+            "config": {}
+          }
+        ],
+        "testCases": {
+          "43e852a1-12fc-4998-a974-793eeb6f5cde": {
+            "id": "43e852a1-12fc-4998-a974-793eeb6f5cde",
+            "name": "Unnamed event",
+            "functionId": "96465c07-8986-4373-9441-5bff420cea77",
+            "event": "{\n    \"key1\": \"value1\",\n    \"key2\": \"value2\",\n    \"key3\": \"value3\"\n}"
+          }
+        }
+      },
+      "8809008e-caf6-47a7-9bf7-e6ea065fc1de": {
+        "id": "8809008e-caf6-47a7-9bf7-e6ea065fc1de",
+        "parent": "58e5a36d-bfa6-4cfe-86ea-fab33c6c148c",
+        "name": "New.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "Fin1/New.js",
+        "code": "exports.handler = function(event, context, callback) {\n    \n    callback(null, {\"message\": \"Successfully executed\"});\n}",
+        "config": {
+          "runtime": "nodejs8.10",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": []
+        },
+        "triggers": []
+      },
+      "c5f7159c-0eba-48b1-bdfc-42bec4b7f0e4": {
+        "id": "c5f7159c-0eba-48b1-bdfc-42bec4b7f0e4",
+        "parent": "58e5a36d-bfa6-4cfe-86ea-fab33c6c148c",
+        "name": "nn.py",
+        "type": "PYTHON_FILE",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "Fin1/nn.py",
+        "code": ""
+      },
+      "443ce478-0f3a-4989-a4ad-937a9ab8eced": {
+        "id": "443ce478-0f3a-4989-a4ad-937a9ab8eced",
+        "parent": "58e5a36d-bfa6-4cfe-86ea-fab33c6c148c",
+        "name": "__init__.py",
+        "type": "PYTHON_FILE",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "Fin1/__init__.py",
+        "code": ""
+      }
+    },
+    "deletedFiles": [],
+    "rootNode": "58e5a36d-bfa6-4cfe-86ea-fab33c6c148c",
+    "openFiles": [
+      "96465c07-8986-4373-9441-5bff420cea77",
+      "8809008e-caf6-47a7-9bf7-e6ea065fc1de",
+      "c5f7159c-0eba-48b1-bdfc-42bec4b7f0e4"
+    ],
+    "currentFileId": "96465c07-8986-4373-9441-5bff420cea77",
+    "resources": {
+      "apigusEast1reondreondget": {
+        "name": "apigusEast1reondreondget",
+        "type": "API_GATEWAY",
+        "config": {
+          "selectedRegion": "us-east-1",
+          "apiMode": 1,
+          "apiName": "reond",
+          "apiId": "h0hmthveqi",
+          "endpointType": "EDGE",
+          "rootResourceId": "ieixx106i0",
+          "existingResources": {
+            "/reond": "ck0ska",
+            "/": "ieixx106i0"
+          },
+          "resourceMode": 1,
+          "resourcePath": "/reond",
+          "resourceName": "reond",
+          "resourceId": "ck0ska",
+          "restMethod": "GET",
+          "proxyIntegration": false,
+          "enableCORS": false,
+          "stageMode": 1,
+          "stageName": "reond",
+          "stageDeploymentId": "k5v7eh",
+          "mode": 1
+        }
+      }
+    },
+    "customTemplate": {
+      "dialect": null,
+      "definitions": {}
+    },
+    "envVariables": [
+      {
+        "lambdaId": "all",
+        "varKey": "SIGMA_AWS_ACC_ID",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": false
+      }
+    ],
+    "packageJSON": {
+      "dependencies": {
+        "swagger-client": {
+          "name": "swagger-client",
+          "language": "javascript",
+          "version": "3.8.21",
+          "dev": false,
+          "notRemovable": false
+        },
+        "mysql": {
+          "name": "mysql",
+          "version": "2.17.1",
+          "language": "javascript"
+        }
+      }
+    }
+  },
+  "PROJECT_META": {
+    "projectName": "Fin1",
+    "projectDescription": "",
+    "projectVersion": "1.0.0",
+    "projectRegion": "us-east-1",
+    "platform": "AWS",
+    "platformRegions": {},
+    "lastSave": 1564126137581
+  },
+  "VCS_STATE": {
+    "provider": "GitHub",
+    "repo": {
+      "name": "Fin1",
+      "url": "https://github.com/Kumudikatest/Fin2"
+    }
+  }
+}
