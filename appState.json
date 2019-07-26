@@ -23,7 +23,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "Fin1/lambda.js",
-        "code": "let Swagger = require('swagger-client');\n\nexports.handler = function (event, context, callback) {\n\n    Swagger.http({\n        url: `http://bx8ocdir2g.execute-api.eu-west-1.amazonaws.com/prod/fyn`,\n        method: 'get',\n        query: {},\n        headers: { \"Accept\": \"\" }\n    }).then((response) => {\n        callback(null, { \"message\": response });\n        // your code goes here\n        console.log(response);\n    }).catch((err) => {\n        // error handling goes here\n    });\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
+        "code": "let Swagger = require('swagger-client');\n\nexports.handler = function (event, context, callback) {\n\n}",
         "config": {
           "runtime": "nodejs8.10",
           "handler": "handler",
@@ -58,10 +58,7 @@
         "code": ""
       }
     },
-    "deletedFiles": [
-      "Fin1/New.js",
-      "Fin1/nn.py"
-    ],
+    "deletedFiles": [],
     "rootNode": "58e5a36d-bfa6-4cfe-86ea-fab33c6c148c",
     "openFiles": [
       "96465c07-8986-4373-9441-5bff420cea77"
@@ -134,7 +131,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1564126964435
+    "lastSave": 1564128126648
   },
   "VCS_STATE": {
     "provider": "GitHub",
