@@ -9,8 +9,6 @@
         "isDirectory": true,
         "children": [
           "96465c07-8986-4373-9441-5bff420cea77",
-          "8809008e-caf6-47a7-9bf7-e6ea065fc1de",
-          "c5f7159c-0eba-48b1-bdfc-42bec4b7f0e4",
           "443ce478-0f3a-4989-a4ad-937a9ab8eced"
         ],
         "isRemovable": false,
@@ -25,7 +23,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "Fin1/lambda.js",
-        "code": "let Swagger = require('swagger-client');\n\nexports.handler = function (event, context, callback) {\n\n    Swagger.http({\n        url: `http://bx8ocdir2g.execute-api.eu-west-1.amazonaws.com/prod/fyn`,\n        method: 'get',\n        query: {},\n        headers: { \"Accept\": \"\" }\n    }).then((response) => {\n        // your code goes here\n        console.log(response);\n    }).catch((err) => {\n        // error handling goes here\n    });\n\n    Swagger.http({\n        url: `http://bx8ocdir2g.execute-api.eu-west-1.amazonaws.com/prod/fyn`,\n        method: 'post',\n        query: {},\n        headers: { \"Accept\": \"\", \"Content-Type\": \"applications/json\" },\n        body: { \"Test\": \"Value\" }\n    }).then((response) => {\n        console.log(response);\n        // your code goes here\n    }).catch((err) => {\n        // error handling goes here\n    });\n    Swagger.http({\n        url: `http://bx8ocdir2g.execute-api.eu-west-1.amazonaws.com/prod/fyn`,\n        method: 'post',\n        query: {},\n        headers: { \"Accept\": \"\", \"Content-Type\": \"applications/json\" },\n        body: b\n    }).then((response) => {\n        // your code goes here\n    }).catch((err) => {\n        // error handling goes here\n    });\n\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
+        "code": "let Swagger = require('swagger-client');\n\nexports.handler = function (event, context, callback) {\n\n    Swagger.http({\n        url: `http://bx8ocdir2g.execute-api.eu-west-1.amazonaws.com/prod/fyn`,\n        method: 'get',\n        query: {},\n        headers: { \"Accept\": \"\" }\n    }).then((response) => {\n        callback(null, { \"message\": response });\n        // your code goes here\n        console.log(response);\n    }).catch((err) => {\n        // error handling goes here\n    });\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
         "config": {
           "runtime": "nodejs8.10",
           "handler": "handler",
@@ -48,36 +46,6 @@
           }
         }
       },
-      "8809008e-caf6-47a7-9bf7-e6ea065fc1de": {
-        "id": "8809008e-caf6-47a7-9bf7-e6ea065fc1de",
-        "parent": "58e5a36d-bfa6-4cfe-86ea-fab33c6c148c",
-        "name": "New.js",
-        "type": "JS_LAMBDA",
-        "isDirectory": false,
-        "children": [],
-        "isRemovable": true,
-        "filePath": "Fin1/New.js",
-        "code": "exports.handler = function(event, context, callback) {\n    \n    callback(null, {\"message\": \"Successfully executed\"});\n}",
-        "config": {
-          "runtime": "nodejs8.10",
-          "handler": "handler",
-          "timeout": 60,
-          "memory": 128,
-          "layers": []
-        },
-        "triggers": []
-      },
-      "c5f7159c-0eba-48b1-bdfc-42bec4b7f0e4": {
-        "id": "c5f7159c-0eba-48b1-bdfc-42bec4b7f0e4",
-        "parent": "58e5a36d-bfa6-4cfe-86ea-fab33c6c148c",
-        "name": "nn.py",
-        "type": "PYTHON_FILE",
-        "isDirectory": false,
-        "children": [],
-        "isRemovable": true,
-        "filePath": "Fin1/nn.py",
-        "code": ""
-      },
       "443ce478-0f3a-4989-a4ad-937a9ab8eced": {
         "id": "443ce478-0f3a-4989-a4ad-937a9ab8eced",
         "parent": "58e5a36d-bfa6-4cfe-86ea-fab33c6c148c",
@@ -90,12 +58,13 @@
         "code": ""
       }
     },
-    "deletedFiles": [],
+    "deletedFiles": [
+      "Fin1/New.js",
+      "Fin1/nn.py"
+    ],
     "rootNode": "58e5a36d-bfa6-4cfe-86ea-fab33c6c148c",
     "openFiles": [
-      "96465c07-8986-4373-9441-5bff420cea77",
-      "8809008e-caf6-47a7-9bf7-e6ea065fc1de",
-      "c5f7159c-0eba-48b1-bdfc-42bec4b7f0e4"
+      "96465c07-8986-4373-9441-5bff420cea77"
     ],
     "currentFileId": "96465c07-8986-4373-9441-5bff420cea77",
     "resources": {
@@ -165,7 +134,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1564126137581
+    "lastSave": 1564126964435
   },
   "VCS_STATE": {
     "provider": "GitHub",
